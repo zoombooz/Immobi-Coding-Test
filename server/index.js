@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors');
 const app = express()
 const port = 3000
 const routerKaryawan = require('./router/karyawan');
@@ -7,6 +8,7 @@ const routerDepartment = require('./router/department');
 
 app.use(express.json())
 app.use(express.urlencoded({extended : true}))
+app.use(cors())
 
 app.use('/karyawan', routerKaryawan)
 app.use('/jabatan', routerJabatan)
